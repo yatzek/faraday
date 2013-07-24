@@ -36,7 +36,8 @@ module Faraday
           if proxy = request_options(env)[:proxy]
             options[:proxy] = {
               :host => proxy[:uri].host,
-              :port => proxy[:uri].port
+              :port => proxy[:uri].port,
+              :authorization => [proxy[:user], proxy[:password]]
             }
           end
         end
